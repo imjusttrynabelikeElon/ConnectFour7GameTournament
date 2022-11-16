@@ -12,6 +12,7 @@ var board = [[BoardItem]]()
 
 func resetBoard()
 {
+    
 	board.removeAll()
 	
 	for row in 0...5
@@ -24,7 +25,9 @@ func resetBoard()
 			rowArray.append(boardItem)
 		}
 		board.append(rowArray)
+       
 	}
+    
 }
 
 func getBoardItem(_ indexPath: IndexPath) -> BoardItem
@@ -74,6 +77,7 @@ func boardIsFull() -> Bool
 func victoryAchieved()  -> Bool
 {
 	return horizontalVictory() || verticalVictory() || diagonalVicotry()
+    
 }
 
 func diagonalVicotry()  -> Bool

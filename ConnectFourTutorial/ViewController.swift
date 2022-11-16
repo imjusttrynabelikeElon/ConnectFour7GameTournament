@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 	
 	var redScore = 0
 	var yellowScore = 0
+    var numberOfRoundsOne = 0
 	
 	override func viewDidLoad()
 	{
@@ -61,17 +62,138 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 				updateBoardWithBoardItem(boardItem)
 				
 				if victoryAchieved()
+                    
 				{
+                    
 					if yellowTurn()
 					{
-						yellowScore += 1
+                    
+                     
+						numberOfRoundsOne += 1
+                        yellowScore += 1
+                         
+                        if yellowScore == 4 {
+                            resultAlert(("Congrats Yellow! You won the seies of 7! You have won 5.50$"))
+                            yellowScore = 0
+                            redScore = 0
+                            numberOfRoundsOne = 0
+                            
+                        }
+                            
+                               resultAlert("Yellow you won this round! Keep going you might win the prize!!!")
+                        
+                
+                            
+                               if yellowScore == 2 {
+                              
+                              
+                                  
+                                   resultAlert("Yellow you won this round! Keep going you might win the prize!!!")
+                               }
+                               
+                             
+                             
+                               if yellowScore == 3 {
+                                   
+                               
+                                  
+                                   resultAlert("Yellow you won this round! Keep going you might win the prize!!!")
+                                   
+                               }
+                       
+                  if yellowScore == 4 {
+                         
+                                  yellowScore = 0
+                                redScore = 0
+                                resultAlert("Congrats Yellow! You won the seies of 7! You have won 5.50$")
+                            
+                              
+                    
+                            
+                        }
+                    
+                            
+                        
+                       
+                    
+                        
 					}
 					
 					if redTurn()
+                        
+                      
 					{
-						redScore += 1
+                        
+                      
+                        numberOfRoundsOne += 1
+                        redScore += 1
+                        
+                        if redScore == 4 {
+                        resultAlert(("Congrats Red! You won the seies of 7! You have won 5.50$"))
+                            redScore = 0
+                            yellowScore = 0
+                            numberOfRoundsOne = 0
+                        
+                    }
+                      
+                           
+                         
+                            resultAlert("Red you won this round! Keep going you might win the prize!!!")
+                           
+                        
+                       
+                    
+                     
+                        
+                        if redScore == 2 {
+                            
+                          
+                          
+                          
+                            resultAlert("Red you won this round! Keep going you might win the prize!!!")
+                         
+                        }
+                     
+                      
+                        
+                        if redScore == 3 {
+                            
+                          
+                          
+                            
+                            resultAlert("Red you won this round! Keep going you might win the prize!!!")
+                           
+                           
+                        }
+                      
+                  
+                       
+                        if redScore == 4 {
+                          
+                           
+                           redScore = 0
+                            yellowScore = 0
+                            resultAlert("Congrats Yellow! You won the seies of 7! You have won 5.50$")
+                          
+                            
+                         
+                           
+                            
+                           
+                            
+                            
+                           
+                            
+                        }
+                        resultAlert("\(currentTurnVictoryMessage())")
+                       
+                        
+                       
+                       
+                       
 					}
-					resultAlert(currentTurnVictoryMessage())
+                   
+					
 				}
 				
 				if boardIsFull()
@@ -88,10 +210,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 	{
 		let message = "\nRed: " + String(redScore) + "\n\nYellow: " + String(yellowScore)
 		let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-		ac.addAction(UIAlertAction(title: "Reset", style: .default, handler: {
+		ac.addAction(UIAlertAction(title: " Round \(numberOfRoundsOne) Completed!!!", style: .default, handler: {
 			[self] (_) in
 			resetBoard()
-			self.resetCells()
+            self.resetCells()
+           
 		}))
 		self.present(ac, animated: true)
 	}

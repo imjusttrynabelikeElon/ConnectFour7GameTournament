@@ -52,5 +52,8 @@ func currentTurnColor() -> UIColor
 
 func currentTurnVictoryMessage() -> String
 {
-	return yellowTurn() ? "Yellow Wins!" : "Red Wins!"
+   
+	return yellowTurn() ? "Congrats Yellow! You won the seies of 7! You have won 5.50$" : "Congrats Red You won the seies of 7! You have won 5.50$"
+  
+    
 }

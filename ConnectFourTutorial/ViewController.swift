@@ -68,6 +68,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 					if yellowTurn()
 					{
                     
+                        // the problem I was having is that yellowTurn  goes for every code block. so what that means is yellowturn goes for every if else in the code, ao I just did a if statement in yellowT\Turn to make if redScore == 4 have its own logic. Since 4 makes the game end.
+                        
                      
 						numberOfRoundsOne += 1
                         yellowScore += 1
@@ -120,6 +122,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 					}
 					
 					if redTurn()
+                        // the problem I was having is that redTurn  goes for every code block. so what that means is redturn goes for every if else in the code, ao I just did a if statement in redTurn to make if redScore == 4 have its own logic. Since 4 makes the game end.
                         
                       
 					{
@@ -173,7 +176,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                            
                            redScore = 0
                             yellowScore = 0
-                            resultAlert("Congrats Yellow! You won the seies of 7! You have won 5.50$")
+                            resultAlert("Congrats Red! You won the seies of 7! You have won 5.50$")
                           
                             
                          

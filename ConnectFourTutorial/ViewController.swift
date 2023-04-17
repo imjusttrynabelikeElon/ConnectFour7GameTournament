@@ -27,7 +27,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 	var redScore = 0
 	var yellowScore = 0
     var numberOfRoundsOne = 0
-    
+    var collectionViewHeightConstraint: NSLayoutConstraint?
+
     
 	
 	override func viewDidLoad()
@@ -50,13 +51,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 }
 
 
-        
 	}
+    
+    
 
+
+   
 	func setCellWidthHeight()
 	{
 		let width = collectionView.frame.size.width / 9
-		let height = collectionView.frame.size.height / 6
+		let height = collectionView.frame.size.height /  17
 		let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
 		flowLayout.itemSize = CGSize(width: width, height: height)
 	}

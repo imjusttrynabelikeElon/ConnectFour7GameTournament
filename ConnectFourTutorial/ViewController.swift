@@ -11,7 +11,6 @@ import AVFoundation
 
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
-
     var aPlayer: AVAudioPlayer?
 
 
@@ -53,17 +52,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
 	}
     
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setCellWidthHeight()
+    }
 
 
-   
-	func setCellWidthHeight()
-	{
-		let width = collectionView.frame.size.width / 9
-		let height = collectionView.frame.size.height /  17
-		let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-		flowLayout.itemSize = CGSize(width: width, height: height)
-	}
+    func setCellWidthHeight() {
+        let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        var width: CGFloat = 0
+        var height: CGFloat = 0
+        
+        if UIDevice.current.orientation.isLandscape {
+            width = collectionView.frame.size.width / 8
+            height = collectionView.frame.size.height / 4
+        } else if UIDevice.current.orientation.isPortrait {
+            width = collectionView.frame.size.width / 9
+            height = collectionView.frame.size.height / 6
+        }
+        
+        flowLayout.itemSize = CGSize(width: width, height: height)
+    }
+
+
 	func numberOfSections(in cv: UICollectionView) -> Int
 	{
 		return board.count

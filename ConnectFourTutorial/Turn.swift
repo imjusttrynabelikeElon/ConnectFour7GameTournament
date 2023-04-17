@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 enum Turn
 {
 	case Red
@@ -16,17 +17,23 @@ enum Turn
 
 var currentTurn = Turn.Yellow
 
-func toggleTurn(_ turnImage: UIImageView)
+
+
+
+func toggleTurn(_ turnImage: UIImageView, _ playerTurn: UILabel)
 {
 	if yellowTurn()
 	{
 		currentTurn = Turn.Red
 		turnImage.tintColor = .red
+        playerTurn.text = "Red turn"
+        
 	}
 	else
 	{
 		currentTurn = Turn.Yellow
 		turnImage.tintColor = .systemYellow
+        playerTurn.text = "Yellow turn"
 	}
 }
 

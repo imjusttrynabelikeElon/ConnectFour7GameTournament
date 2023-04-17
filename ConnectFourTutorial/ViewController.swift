@@ -6,21 +6,51 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource
-{
+
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
+
+    var aPlayer: AVAudioPlayer?
+
+
+    @IBOutlet weak var playerTurn: UILabel!
+
 	@IBOutlet weak var collectionView: UICollectionView!
+    
 	@IBOutlet weak var turnImage: UIImageView!
+    
+    
 	
+    
 	var redScore = 0
 	var yellowScore = 0
     var numberOfRoundsOne = 0
+    
+    
 	
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
 		resetBoard()
 		setCellWidthHeight()
+        setupAudioPlayer2()
+        
+        
+        if let path = Bundle.main.path(forResource: "gameMusic", ofType: "mp3") {
+                    let url = URL(fileURLWithPath: path)
+                    do {
+                        aPlayer = try AVAudioPlayer(contentsOf: url)
+                        aPlayer?.play()
+                        aPlayer?.numberOfLoops = -1
+                    } catch {
+                        print("Error loading audio file")
+                    }
+                }
+
+
+        
 	}
 
 	func setCellWidthHeight()
@@ -48,7 +78,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 		cell.image.tintColor = boardItem.tileColor()
 		return cell
 	}
-	
+    
+  
+
 	
 	func collectionView(_ cv: UICollectionView, didSelectItemAt indexPath: IndexPath)
 	{
@@ -60,22 +92,35 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 				cell.image.tintColor = currentTurnColor()
 				boardItem.tile = currentTurnTile()
 				updateBoardWithBoardItem(boardItem)
-				
+                
+                
+              
 				if victoryAchieved()
                     
 				{
                     
 					if yellowTurn()
+                        
+                       
 					{
+                       
+                        
+                      
+                       
                     
                         // the problem I was having is that yellowTurn  goes for every code block. so what that means is yellowturn goes for every if else in the code, ao I just did a if statement in yellowT\Turn to make if redScore == 4 have its own logic. Since 4 makes the game end.
+          
+                        
+                        
                         
                      
 						numberOfRoundsOne += 1
                         yellowScore += 1
+                       
+                   
                          
                         if yellowScore == 4 {
-                            resultAlert(("Congrats Yellow! You won the seies of 7! You have won 5.50$"))
+                            resultAlert(("Congrats Yellow! You won the seies of 7!"))
                             yellowScore = 0
                             redScore = 0
                             numberOfRoundsOne = 0
@@ -107,7 +152,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                          
                                   yellowScore = 0
                                 redScore = 0
-                                resultAlert("Congrats Yellow! You won the seies of 7! You have won 5.50$")
+                                resultAlert("Congrats Yellow! You won the seies of 7!")
                             
                               
                     
@@ -124,10 +169,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 					if redTurn()
                         // the problem I was having is that redTurn  goes for every code block. so what that means is redturn goes for every if else in the code, ao I just did a if statement in redTurn to make if redScore == 4 have its own logic. Since 4 makes the game end.
                         
+                     
                       
 					{
                         
                       
+                        
+                     
+                 
                         numberOfRoundsOne += 1
                         redScore += 1
                         
@@ -204,7 +253,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 					resultAlert("Draw")
 				}
 				
-				toggleTurn(turnImage)
+                toggleTurn(turnImage, playerTurn)
 			}
 		}
 	}
@@ -229,5 +278,21 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 			cell.image.tintColor = .white
 		}
 	}
+    
+    func setupAudioPlayer2() {
+           guard let url = Bundle.main.url(forResource: "gameMusic", withExtension: "mp3") else {
+               return
+           }
+           
+           do {
+               aPlayer = try AVAudioPlayer(contentsOf: url)
+               aPlayer?.prepareToPlay()
+               aPlayer?.numberOfLoops = -1
+           } catch {
+               print("Error loading audio file: \(error)")
+           }
+       }
+    
+
 }
 

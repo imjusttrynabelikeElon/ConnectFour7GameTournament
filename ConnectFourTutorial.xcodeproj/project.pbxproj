@@ -17,6 +17,7 @@
 		2EE4AE882748C91100FD0100 /* BoardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4AE872748C91100FD0100 /* BoardItem.swift */; };
 		2EE4AE8A2748C91700FD0100 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4AE892748C91700FD0100 /* Board.swift */; };
 		2EE4AE8C2748C91D00FD0100 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE4AE8B2748C91D00FD0100 /* Turn.swift */; };
+		C947981A29ED27E1006A9853 /* gameMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C947981929ED27E1006A9853 /* gameMusic.mp3 */; };
 		C95FA3F8292650010082E72B /* Cccconectfour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95FA3F7292650010082E72B /* Cccconectfour.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		2EE4AE872748C91100FD0100 /* BoardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardItem.swift; sourceTree = "<group>"; };
 		2EE4AE892748C91700FD0100 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		2EE4AE8B2748C91D00FD0100 /* Turn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		C947981929ED27E1006A9853 /* gameMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameMusic.mp3; sourceTree = "<group>"; };
 		C95FA3F7292650010082E72B /* Cccconectfour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Cccconectfour.storyboard; path = ../../Desktop/Cccconectfour.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				2EE4AE852748C84F00FD0100 /* BoardCell.swift */,
 				2EE4AE7A2748C75000FD0100 /* Assets.xcassets */,
 				2EE4AE7C2748C75000FD0100 /* LaunchScreen.storyboard */,
+				C947981929ED27E1006A9853 /* gameMusic.mp3 */,
 				2EE4AE7F2748C75000FD0100 /* Info.plist */,
 			);
 			path = ConnectFourTutorial;
@@ -142,6 +145,7 @@
 			files = (
 				C95FA3F8292650010082E72B /* Cccconectfour.storyboard in Resources */,
 				2EE4AE7E2748C75000FD0100 /* LaunchScreen.storyboard in Resources */,
+				C947981A29ED27E1006A9853 /* gameMusic.mp3 in Resources */,
 				2EE4AE7B2748C75000FD0100 /* Assets.xcassets in Resources */,
 				2EE4AE792748C74B00FD0100 /* Main.storyboard in Resources */,
 			);
@@ -309,7 +313,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3SEC78SH4;
+				DEVELOPMENT_TEAM = A3M4AFU3DN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectFourTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -322,7 +326,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = code.with.cal.ConnectFourTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = code.with.cal.ConnectFourTutoriall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -337,7 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B3SEC78SH4;
+				DEVELOPMENT_TEAM = A3M4AFU3DN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectFourTutorial/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -350,7 +354,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = code.with.cal.ConnectFourTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = code.with.cal.ConnectFourTutoriall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

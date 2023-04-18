@@ -33,10 +33,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 	override func viewDidLoad()
 	{
 		super.viewDidLoad()
+    
+        viewDidLayoutSubviews()
+       
 		resetBoard()
-		setCellWidthHeight()
+		
         setupAudioPlayer2()
         
+       
         
         if let path = Bundle.main.path(forResource: "gameMusic", ofType: "mp3") {
                     let url = URL(fileURLWithPath: path)
@@ -55,6 +59,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setCellWidthHeight()
+           collectionView.reloadData()
+        
     }
 
 
@@ -66,14 +72,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if UIDevice.current.orientation.isLandscape {
             width = collectionView.frame.size.width / 8
             height = collectionView.frame.size.height / 4
+            
+            collectionView.clipsToBounds = true
         } else if UIDevice.current.orientation.isPortrait {
             width = collectionView.frame.size.width / 9
             height = collectionView.frame.size.height / 6
+            collectionView.clipsToBounds = true
         }
         
         flowLayout.itemSize = CGSize(width: width, height: height)
+        
+        // Add constraints to ensure collection view stays within bounds of view
+        //   collectionView.translatesAutoresizingMaskIntoConstraints = tr
     }
 
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { [weak self] _ in
+            self?.setCellWidthHeight()
+            self?.collectionView.reloadData()
+        }, completion: nil)
+    }
+        //
 
 	func numberOfSections(in cv: UICollectionView) -> Int
 	{
